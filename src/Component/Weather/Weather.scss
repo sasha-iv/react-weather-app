@@ -1,0 +1,135 @@
+.app{
+  background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.6)), url("../../../public/images/bg-cold.jpg");
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+.app.warm{
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../../../public/images/bg-warm.jpg");
+}
+.weatherWrapper{
+  width: 100%;
+  max-width: 410px;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 1px 1px 3px #262841;
+  border-radius: 20px;
+  color: white;
+
+  input{
+    width: calc(100% - 20px);
+    padding: 10px 20px;
+    margin: 10px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    background-color: rgba(250, 250, 250, 0.6);
+    color: #1c1d1e;
+
+    &:focus{
+      background-color: rgba(250, 250, 250, 0.8);
+    }
+  }
+}
+
+.location{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    display: block;
+    margin: 5px 0;
+  }
+  span:first-child{
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 25px;
+    font-weight: 100;
+  }
+  img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  h2{
+    font-size: 50px;
+    font-weight: 200;
+  }
+  span:nth-child(4){
+    font-size: 20px;
+    font-weight: 300;
+  }
+  span:last-child{
+    font-size: 14px;
+    font-weight: 100;
+    color: #ecebeb;
+  }
+}
+
+.bottomBlock{
+  margin-top: 20px;
+  span:first-child{
+    margin-left: 5px;
+  }
+}
+.weeksContainer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  gap: 10px;
+
+  .weekData{
+    width: calc(50% - 5px);
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 10px 25px;
+
+    &:hover{
+      background-color: rgba(220, 220, 220, 0.8);
+      cursor: pointer;
+      h4, span{
+        color: black;
+      }
+    }
+    span{
+      display: block;
+    }
+    h4{
+      font-size: 13px;
+    }
+    img{
+      width: 50px;
+      height: 40px;
+      object-fit: contain;
+    }
+    span:nth-child(3){
+      font-size: 20px;
+      font-weight: 200;
+    }
+    span:last-child{
+      font-size: 12px;
+    }
+  }
+}

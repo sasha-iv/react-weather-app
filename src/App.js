@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+import './index.css';
+import Weather from "./Component/Weather/Weather";
+import search from "./axios";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+   const [defaultCity, setDefaultCity] = useState('');
 
+    useEffect(() => {
+        search().then(result => {
+            setDefaultCity(result)
+        });
+    }, []);
+
+    if (!defaultCity) {
+        return (
+            <div className='app'></div>
+        )
+    } else {
+        return (
+            <div>
+                <Weather defaultCity={defaultCity}/>
+            </div>
+        )
+    }
+
+}
 export default App;
