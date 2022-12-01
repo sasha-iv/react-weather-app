@@ -39,14 +39,18 @@ const Weather = (props) => {
     const WeekData = (props) => {
         let day = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(new Date(props.weekData.dt * 1000));
         let src = props.weekData.weather[0].icon;
-        let temp = props.weekData.main.temp - 273;
+        let tempMax = props.weekData.main.temp_max - 273;
+        let tempMin = props.weekData.main.temp_min - 273;
         let description = props.weekData.weather[0].description;
 
         return(
             <div className='weekData'>
                 <h4>{day}</h4>
                 <img src={`images/${src}.png`} alt='img'/>
-                <span>{Math.round(temp)}&#176;C</span>
+                <div className='temp'>
+                    <span>{Math.round(tempMax)}&#176;</span>
+                    <span>{Math.round(tempMin)}&#176;</span>
+                </div>
                 <span>{description}</span>
             </div>
         )
@@ -87,7 +91,7 @@ const Weather = (props) => {
                     { data?.list?.length ? <span>{showDate(data.list[0].dt * 1000)}</span>: null}
                 </div>
                 <div className='bottomBlock'>
-                    <span>Week</span>
+                    <p>Week</p>
                     <div className='weeksContainer'>
                         {forecastWeekly}
                     </div>

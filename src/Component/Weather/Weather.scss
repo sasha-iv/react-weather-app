@@ -96,7 +96,7 @@
 
   .weekData{
     width: calc(50% - 5px);
-    height: 130px;
+    height: 140px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -111,6 +111,21 @@
       cursor: pointer;
       h4, span{
         color: black;
+      }
+    }
+    .temp{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      span:first-child{
+        font-size: 23px;
+        font-weight: 200;
+      }
+      span:last-child{
+        font-size: 18px;
+        margin-left: 15px;
+        color: #c0bfbf;
       }
     }
     span{
@@ -130,6 +145,15 @@
     }
     span:last-child{
       font-size: 12px;
+    }
+  }
+}
+
+
+@media(max-width: 480px){
+  .weeksContainer{
+    .weekData{
+      padding: 10px;
     }
   }
 }
