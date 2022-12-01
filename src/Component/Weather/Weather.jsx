@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import './Weather.scss';
 import search from "../../axios";
 
+
 const Weather = (props) => {
 
     const [userQuery, setUserQuery] = useState('');
@@ -46,7 +47,7 @@ const Weather = (props) => {
         return(
             <div className='weekData'>
                 <h4>{day}</h4>
-                <img src={`images/${src}.png`} alt='img'/>
+                <img src={process.env.PUBLIC_URL + `/images/${src}.png`} alt='img'/>
                 <div className='temp'>
                     <span>{Math.round(tempMax)}&#176;</span>
                     <span>{Math.round(tempMin)}&#176;</span>
@@ -81,7 +82,7 @@ const Weather = (props) => {
                 <div className='location'>
                     <span>{data?.city?.name}, {data?.city?.country}</span>
                     { data?.list?.length ?
-                        <img src={`images/${data.list[0].weather[0].icon}.png`} alt='img'/> : null}
+                        <img src={process.env.PUBLIC_URL +`/images/${data.list[0].weather[0].icon}.png`} alt='img'/> : null}
                     {data?.list?.length ? <h2>{Math.round(data.list[0].main.temp - 273)}&#176;C</h2> : null}
                     {data?.list?.length ?
                         <span>{data.list[0].weather[0].description}</span> : null}
