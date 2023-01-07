@@ -32,7 +32,7 @@ const Weather = (props) => {
         const date = new Date();
         let day = days[date.getDay() - 1];
         let dateNumber = date.getDate();
-        let month = months[date.getMonth() - 1];
+        let month = months[date.getMonth()];
         let year = date.getFullYear();
         return `${day} ${dateNumber} ${month} ${year}`;
     }
